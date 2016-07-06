@@ -9,6 +9,6 @@ Note: Work in progress.
 
 ##Authors:
 
-* Mannie Gill
+* Julie Lev
 
 * Nomi Vos
