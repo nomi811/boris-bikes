@@ -62,3 +62,19 @@ I'd like docking stations not to release bikes when there are none available.
 ```
 DockingStation <-- release_bike --> true/false
 ```
+
+## Challenge #13 User Stories
+```
+As a maintainer of the system,
+So that I can control the distribution of bikes,
+I'd like docking stations not to accept more bikes than their capacity.
+```
+| Objects         | Messages          |
+|-----------------|-------------------|
+| Maintainer      |                   |
+| Bike            |                   |
+| DockingStation  | capacity?         |
+
+```
+DockingStation <-- capacity? --> true/false
+```
