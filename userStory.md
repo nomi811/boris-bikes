@@ -73,8 +73,23 @@ I'd like docking stations not to accept more bikes than their capacity.
 |-----------------|-------------------|
 | Maintainer      |                   |
 | Bike            |                   |
-| DockingStation  | capacity?         |
+| DockingStation  | dock              |
 
 ```
-DockingStation <-- capacity? --> true/false
+DockingStation <-- dock --> true/false
+```
+## Challenge #14 User Stories
+```
+As a system maintainer,
+So that I can plan the distribution of bikes,
+I want a docking station to have a default capacity of 20 bikes.
+```
+| Objects         | Messages          |
+|-----------------|-------------------|
+| Maintainer      |                   |
+| Bike            |                   |
+| DockingStation  | dock              |
+
+```
+DockingStation <-- dock --> true/false
 ```
