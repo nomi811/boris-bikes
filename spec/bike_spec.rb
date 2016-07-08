@@ -1,8 +1,17 @@
 require "bike"
 
   describe Bike do
-    #it "confirms that the bike is working" do
-    #  expect(subject).to respond_to :working?
-    #end
-    it { is_expected.to respond_to :working? }
+    it { is_expected.to respond_to :broken? }
+    it { is_expected.to respond_to :report_broken }
+
+    describe '#broken?' do
+      it 'returns not broken' do
+        bike = Bike.new
+        expect(bike).not_to be_broken
+      end
+      it 'returns broken' do
+        bike = Bike.new
+        expect(bike).to be_broken
+      end
+    end
   end
