@@ -22,7 +22,7 @@ describe DockingStation do
 
   describe '#dock' do
     it { is_expected.to respond_to(:dock).with(1).argument }
-    it { is_expected.to respond_to(:bike) }
+    it { is_expected.to respond_to(:bike_array) }
     it 'sees that a bike has been docked' do
       bike = Bike.new
       expect(dockingstation.dock(bike)).to eq bike
@@ -30,10 +30,10 @@ describe DockingStation do
     it 'returns docked bikes' do
       bike = Bike.new
       dockingstation.dock(bike)
-      expect(dockingstation.bike).to eq bike
+      expect(dockingstation.bike_array).to eq bike
     end
     it 'cannot dock more bikes when full' do
-      dockingstation.dock(Bike.new)
+      20.times { dockingstation.dock(Bike.new) }
       expect{ dockingstation.dock(Bike.new) }.to raise_error 'cannot dock bike: station full'
     end
   end
