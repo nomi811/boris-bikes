@@ -32,6 +32,10 @@ describe DockingStation do
       dockingstation.dock(bike)
       expect(dockingstation.bike).to eq bike
     end
+    it 'cannot dock more bikes when full' do
+      dockingstation.dock(Bike.new)
+      expect{ dockingstation.dock(Bike.new) }.to raise_error 'cannot dock bike: station full'
+    end
   end
 
 end
