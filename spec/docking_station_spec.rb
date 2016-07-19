@@ -2,6 +2,7 @@ require 'docking_station'
 
 describe DockingStation do
   it { is_expected.to respond_to :release_bike }
+  it { is_expected.to respond_to :bikes }
 
   it 'has a default capacity' do
     expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
