@@ -29,7 +29,7 @@ describe DockingStation do
     end
     it 'cannot dock more bikes when full' do
       bike = Bike.new
-      20.times { dockingstation.dock(bike) }
+      DockingStation::DEFAULT_CAPACITY.times { dockingstation.dock(bike) }
       expect{ dockingstation.dock(bike) }.to raise_error 'cannot dock bike: station full'
     end
   end
