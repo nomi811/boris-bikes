@@ -21,7 +21,7 @@ describe DockingStation do
   end
 
   describe '#dock' do
-    
+
     it 'returns docked bikes' do
       bike = Bike.new
       dockingstation.dock(bike)

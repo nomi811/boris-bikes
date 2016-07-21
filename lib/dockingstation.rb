@@ -12,13 +12,23 @@ class DockingStation
   end
 
   def release_bike
-    fail 'cannot release bikes: none available' if bike_array.empty?
+    fail 'cannot release bikes: none available' if empty?
     @bike_array.pop
   end
 
   def dock(bike)
-    fail 'cannot dock bike: station full' if bike_array.count >= DEFAULT_CAPACITY
+    fail 'cannot dock bike: station full' if full?
     @bike_array << bike
+  end
+
+  private
+  
+  def full?
+    bike_array.count >= DEFAULT_CAPACITY
+  end
+
+  def empty?
+    bike_array.empty?
   end
 
 end
