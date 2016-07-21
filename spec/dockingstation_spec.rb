@@ -11,11 +11,6 @@ describe DockingStation do
       50.times { station.dock(bike) }
       expect{ station.dock(bike) }.to raise_error 'cannot dock bike: station full'
     end
-
-    it 'defaults capacity' do
-      described_class::DEFAULT_CAPACITY.times { station.dock(bike) }
-      expect{ station.dock(bike) }.to raise_error 'cannot dock bike: station full'
-    end
   end
 
   describe '#release_bike' do
@@ -30,6 +25,11 @@ describe DockingStation do
     end
     it 'cannot release bikes when none are available' do
       expect{ station.release_bike }.to raise_error 'cannot release bikes: none available'
+    end
+    it 'cannot release broken bikes' do
+      bike.report_broken
+      2.times { station.dock(bike) }
+      expect(station.release_bike).to raise_error 'cannot release bike: bike is broken'
     end
   end
 
@@ -49,6 +49,10 @@ describe DockingStation do
 
     it 'allows user to set capacity' do
       expect(station.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
+    it 'defaults capacity' do
+      described_class::DEFAULT_CAPACITY.times { station.dock(bike) }
+      expect{ station.dock(bike) }.to raise_error 'cannot dock bike: station full'
     end
   end
 

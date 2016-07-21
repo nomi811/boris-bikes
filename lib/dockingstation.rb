@@ -2,7 +2,7 @@ require_relative 'bike'
 
 class DockingStation
 
-  attr_reader :capacity
+  attr_accessor :capacity
 
   DEFAULT_CAPACITY = 20
 
@@ -13,7 +13,7 @@ class DockingStation
 
   def release_bike
     fail 'cannot release bikes: none available' if empty?
-    bike_array.pop
+    return_bike
   end
 
   def dock(bike)
@@ -32,5 +32,11 @@ class DockingStation
   def empty?
     bike_array.empty?
   end
+
+  def return_bike
+    @bike_array.each { |bike| return bike unless bike.broken? }
+    fail 'cannot release bike: bike is broken'
+  end
+
 
 end
